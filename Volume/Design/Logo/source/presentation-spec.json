@@ -1,0 +1,46 @@
+{
+  "brand": "Volume",
+  "tagline": "Every session leaves a mark",
+  "brief": "A zero-entry iOS app that turns Apple Health workout history into a 52-week volume heatmap with automatic PRs and muscle recovery. It should feel exact, earned and quiet, like an engraved banknote or a clinical chart strip, not like a gym or a neon fitness tracker.",
+  "adjectives": [
+    "exact",
+    "earned",
+    "unhurried",
+    "private"
+  ],
+  "criteria": "Success: distinct from flame, ring, dumbbell and neon fitness marks; no sound-volume reading; recognisable at 16 px; works in one colour.",
+  "industry": "consumer-app",
+  "nav": [
+    "Heatmap",
+    "Recovery",
+    "Privacy"
+  ],
+  "brand_color": "#2A4896",
+  "greyscale": false,
+  "designer": "Volume",
+  "round": 2,
+  "concepts": [
+    {
+      "name": "Engraved Pulse",
+      "symbol": "../final/volume-symbol.svg",
+      "lockup": "../final/volume-horizontal.svg",
+      "symbol_on_tile": "../final/volume-symbol.svg",
+      "lockup_on_dark": "../final/volume-horizontal-dark.svg",
+      "idea": "One heartbeat, engraved in three lines, whose deep dip is the V of Volume.",
+      "rationale": [
+        "Banknote engraving + chart-strip heartbeat: the app's own visual language",
+        "Rose live line over intaglio-blue engraved lines mirrors PR rose and volume ink",
+        "Small cut with two heavier lines keeps it legible at 16 px",
+        "Avoids flames, rings, dumbbells and speaker icons"
+      ],
+      "symbol_on_dark": "../final/volume-symbol-dark.svg"
+    }
+  ],
+  "recommendation": "Engraved Pulse: chosen direction. Use the full mark from 48 px up and the small cut below it.",
+  "next_steps": [
+    "Professional trademark search before launch",
+    "Tinted (monochrome) iOS 18 icon variant",
+    "Extend the engraved lines into a pattern for the share card and splash"
+  ],
+  "tile_color": "#EEF1EC"
+}

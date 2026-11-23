@@ -1,0 +1,85 @@
+name: VolumeHeatmap
+options:
+  bundleIdPrefix: com.k8awluhz2a
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+
+packages:
+  VolumeKit:
+    path: Packages/VolumeKit
+
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    CODE_SIGN_STYLE: Automatic
+    DEVELOPMENT_TEAM: K8AWLUHZ2A
+    APP_GROUP_ID: group.com.k8awluhz2a.volume
+
+targets:
+  VolumeHeatmap:
+    type: application
+    platform: iOS
+    sources: [App]
+    dependencies:
+      - package: VolumeKit
+        product: VolumeCore
+      - package: VolumeKit
+        product: VolumeUI
+      - target: VolumeWidgets
+      - sdk: HealthKit.framework
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleDisplayName: Volume
+        AppGroupID: $(APP_GROUP_ID)
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        NSHealthShareUsageDescription: >-
+          Volume reads your workouts, active energy, distance and heart rate to build your training
+          heatmap, detect personal records and estimate muscle recovery. Data is analyzed on this
+          device and never uploaded.
+    entitlements:
+      path: App/VolumeHeatmap.entitlements
+      properties:
+        com.apple.developer.healthkit: true
+        com.apple.developer.healthkit.access: []
+        com.apple.developer.healthkit.background-delivery: true
+        com.apple.security.application-groups: [$(APP_GROUP_ID)]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.k8awluhz2a.volume
+        TARGETED_DEVICE_FAMILY: "1,2"
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: ""
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    scheme:
+      testTargets: []
+
+  VolumeWidgets:
+    type: app-extension
+    platform: iOS
+    sources: [Widgets]
+    dependencies:
+      - package: VolumeKit
+        product: VolumeCore
+      - package: VolumeKit
+        product: VolumeUI
+      - sdk: WidgetKit.framework
+      - sdk: SwiftUI.framework
+    info:
+      path: Widgets/Info.plist
+      properties:
+        CFBundleDisplayName: Volume Widgets
+        AppGroupID: $(APP_GROUP_ID)
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    entitlements:
+      path: Widgets/VolumeWidgets.entitlements
+      properties:
+        com.apple.security.application-groups: [$(APP_GROUP_ID)]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.k8awluhz2a.volume.Widgets
+        TARGETED_DEVICE_FAMILY: "1,2"
